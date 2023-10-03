@@ -1,0 +1,63 @@
+HTML
+        <main>												Etiqueta de main vista anteriormente
+            <form>
+                <label for="nombreapellido">Nombre y Apellido</label>			Texto para indicar la funcion del input, apuntando a una 														identificacion de nombre y apellido
+                <input type="text" id="nombreapellido">					El input para escribir el texto del nombre con un id
+
+                <label for="correoelectronico">Correo Electronico</label>		Texto para identificarlo y Texto mostrado en la pagina
+                <input type="email" id="correoelectronico">					Input con el identificador
+                
+                <label for="telefono">Telefono</label>					Nota: se le colocaron los type="email" y "tel" para 
+                <input type="tel" id="telefono" placeholder="(XX) xxxx xxxx">		los tipos de datos que se le van a introducir, tambien 														placeholder sirve para colocar letras de ejemplo 															dentro del input (como un hint en android)
+
+
+			<label for="radio-whatsapp"><input type="radio" name="contacto" value="email" id="radio-whatsapp">Whatsapp</label>															Tambien se puede colocar de esta manera, junto para 															ahorrar espacio			
+
+                <input type="submit" value="Enviar formulario">				input tipo boton para enviar el formulario
+            </form>
+        </main>
+
+        <label for="radio-email">Email</label>							Crea un texto para indicar la funcion del input 
+        <input type="radio" name="contacto" value="email" id="radio-email">		Input tipo circulo de opciones, nombre contacto que hace 														formar parte de un grupo (solo uno puede ser selecionado 														del grupo) el valor es la opcion que se va a seleciconar 														y por ultimo su id para identificarlo 
+<label><input type="checkbox">Le gustaria recibir novedades de la Barberia Alura</label>
+														Check box (seleccion pero cuadrada)
+														
+														Nota: se puede usar "checked" para hara hacer que una  														opcion este seleccionada siempre que se entre a la pagina
+														Nota: "required" sorve para hacer que un campo sea 															requerido en el mismo formulario
+
+inline>ID>class>etiqueta			Segun las propiedades que se coloquen, una cosa le va a ganar a la otra
+
+<fieldset>													Se coloca en vez de un div cuando es un formulario
+      <legend>¿En cual horario prefiere ser atendido?</legend>				se coloca en vez de un <p> cuando es un formulario
+                    <select>							Menu desplegable (selector)
+                        <option>Mañana</option>				opcion 1
+                        <option>Tarde</option>				opcion 2
+                        <option>Noche</option>
+                    </select>
+</fieldset>
+
+														NOTA: para las imagenes le debemos colocar alt="" como 														texto alternativo en caso de que no carguen las imagenes 														de la pagina web
+
+            <table>											Creacion de la tabla
+                <thead>											indica que comienza los nombres de las columnas
+                    <tr>										abrir una fila 
+                        <th>Dia</th>								abrir una columna y colocar un dato
+                        <th>Horario</th>
+                    </tr>										cerrar fila
+                </thead>										Cierra nombres de las columnas
+                <tbody>											Indica que comienza la creacion del cuerpo de la tabla
+                    <tr>										
+                        <td>Lunes</td>								crear columna de cuerpo de tabla y colocar dato
+                        <td>08h - 20h</td>
+                    </tr>
+                </tbody>
+		  <tfoot>											creacion del pie de la tabla 
+		  </tfoot>
+            </table>
+
+CSS
+
+    transition: 1s background;									la transicion al momento de estar arriba de un boton o 														algun div va a cambiar el backgroun en una transicion de 														1 segundo
+    transition: 1s all;											Lo mwjor es usar un all para que se haga una 																transformacion completa en todos los elementos
+    cursor: pointer;											cambia el cursos a ser la manita para presionar un boton
+    transform: scale(1.2) rotate(70deg);								se utiliza para hacer un transformacion en la escala y 														una rotacion de 70 grados 

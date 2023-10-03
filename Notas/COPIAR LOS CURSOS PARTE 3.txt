@@ -1,0 +1,75 @@
+HTML
+<div>  </div>					Nota: la diferencia entre tener un div y un rection es que un "div" es una division de contenido, 							indica un a diferencia de contenido, uno de otro
+<section>  </section>				Mientras que "section" indica que estan relacionados los contenidos entre si
+<iframe></iframe>					Sirve para ingresar mapas, videos, y elementos de mas externos
+<meta name="viewport" content="width=device-width"> pagina ereseponsiva en moviles
+
+CSS
+font-size: 2em;					el tipo de dato "em" es para poder tener un tamaño relativo a la fuente ddel padre (si el padre es
+margin: 0 0 1em;					16 entonces 16x2=32)
+
+float: left;					esta propiedad funciona como en word, como dejar una imagen flotante para que el texto la redee	
+clear: left;					Quita las propiedades de la izquierda para que pueda estar un dato flotante	
+line-height: 1.5;					es casi igual que el "em" ya que aumenta el tamaño dependiendo el padron
+.items:first-child{				Tiene aqui subclases para solo poner el tema al primer item, ultimo item o item personalizado
+    font-weight: bold;				
+}
+background: radial-gradient( orange 50%, blue);			Se crean colores en forma de radio degradado de naranja en 50% del espacio y azul
+background:linear-gradient(45deg, orange 50%, blue);		degradado a 45 grados, naranja a 50% de la capacidad del contenedor y azul
+
+.titulo-principal:first-letter{		en esa clase solo modificamos la primera letra
+    font-weight: bold;				la cual es cambiarla a negritas
+}
+
+p:first-line{					la primera linea de cada <p> se va a convertir en italica
+    font-style: italic;
+}
+
+.titulo-principal:before{			en esa clase, se le va a agregar un elemento antes de que comience cada texto
+    content: "[";
+}
+
+.titulo-principal:after{			igual que lo anterior, pero se agrega al final
+    content: "]";
+}
+
+main > p{						a los hijos de la etiqueta main que tengan p, cambiar el background
+	background: red;
+}
+
+main + p{						a los parrafos que esten despues de la etiqueta main colocar eso
+	background: red;
+}
+
+main ~ p{						a los parrafos que esten antes de la etiqueta main colocar eso
+	background: red;
+}
+
+.principal p:not(#mision){			colocar a todos ese color de fondo, excepto a la clase mision
+	background: orange;
+}
+
+opacity: 0.3;					opacidad en una imagen que se puede usarse en un hover
+
+para hacer calculos en CSS es mas que nada para el tamaño de diferentes elementos:
+width: calc( (100% / 3) - 10px )
+
+box-shadow: inset 0 0 30px red;		sombra interna
+box-shadow: 10px 10px 30px 15px #000000   sombra esterna
+text-shadow: 10px 10px red;			sombra de letras
+
+@media screen and (max-width:480px){	cuando detecte el ancho de una pantalla de 480px , hacer el fondo rojo
+    body{
+        background: red;
+    }
+}
+
+box shadow generator -> pagina para practicar de las sombras
+
+
+Tipos de fuentes:
+fonts.google.com	
+
+Como insertar un mapa de google maps: Solamente llengo a la ubicacion en maps y seleccionando las 3 rallas, en insertar pagina da el formato en html y CSS
+
+Para insertar el video de youtube es igual que maps		

@@ -1,0 +1,76 @@
+COPIAR LA CLASE ESCRITAS EN ESTE BLOC DE NOTAS
+
+HTML
+
+<h1><img src="imagenes/imagenes/logo.png"></h1>				se coloca la imagen en el h1 para destacar el logo (tambien en 													el header para mas importancia) 
+<nav>											Navegacion de toda pagina web que es bueno colocar para modificarla en CSS
+  <ul>										lista no ordenada
+     <li><a href="index.html">Home</a></li>				punto de lista con <a> para refrenciar a una pagina web
+     <li><a href="productos.html">Productos</a></li>			NOTA: simpre se le tiene que colocar el https:// para navegar 
+     <li><a href="https://www.google.com">Contacto</a></li>
+   </ul>
+</nav>
+
+<main>										identificar un codigo mas legible con una etiqueta principal de main
+</main>
+
+<footer>										creacion del pie de pagina
+</footer>
+
+&copy											al usarlo en html donde se ingrea texto para colocar el simbolo de 												copyright
+
+CSS
+nav li{						los li que estan dentro del nav sufriran los cambios
+	background-color: #BBBBBBBB;		cambiar el color del fondo a uno gris
+    	display: inline;				cuando las partes de las listas se colocan sin formato, estas se brincan una linea, este formato 							hace que solo ocupen el ancho necesario y no salten de linea
+    	margin: 0 0 0 15px;			margen que van a tener dentro de el nav (margin: arriba, derecha, abjo, izquierda)
+}
+
+nav a{						los "a" que estan dentro del nav sufriran los cambios
+    text-transform: uppercase;		cambia el texto para que sea mayusculas o minsusculas (uppercase = mayusculas)
+    color: #000000;				color del texto
+    font-weight:  bold;				letra tipo gruesa (o negrita)
+    font-size: 22px;
+    text-decoration: none;			evita que tenga los margenes al enviarnos a una pagina o uq es epineten de color morado
+}
+
+static						posicionamiento que viene por defecto en la pagina para crear el flujo
+relative						su posicion se mantiene en el lugar del flujo, pero se puede mover por la pagina y dejar ese 								espacio suyo
+absolut						se salta todo el flujo y lo podemos colocar donde sea 
+
+.caja{						llamndo la clase en el CSS
+    width: 940px;					Ancho que se va a ocupar
+    position: relative;				tipo de posicion ( para poder usar un absoluto adentro)
+    margin:0 auto;				se crea un margen alrededor de 0 para que se centre en automatico al anvegador
+}
+
+padding: 20px 0;					20 px arriba y abajo exterior y 0 a los lados 
+
+box-sizing: border-box;				la caja teniendo ya sus medidas determinadas no ba a afectar su tamaño al colocarle mas 									elementos dentro, padding, margin o demas
+border-color:#000000;				Crear un borde al rededor del contenedor de color negro
+border-width: 2px;				Crear un borde con un ancho de 2 pixeles
+border-top-width: 2px;				Solo la linea de arriba del borde tendra 2px
+border-style: solid;				estilo de linea solida (tambien se puede a cambiar a dashed para pequeñas lineas y dottedpara 								estar punteado
+border: 2px solid #000000;			Es una forma de reducir lineas de codigo, el primer parametro es el tamaño de el borde, el 								segundo es el tipo de linea y el tercero es el color
+border-top-left-radius: 10px			se puede configurar el radio de los bordes para que sean redondeados (ya sea cad uno o todos)
+border-radius: 40px 20px 30px 20px;		Simplificado
+border-radius: 10px;				Se aplica el borde para todos los bordes
+
+nav a:hover{					la etiqueta de navegacion con la etiqueta a (de vinculos) va a tener un hover(cuando pasa el 								mouse encima de el reacciona con las sigueintes propiedades
+    color: #c78c19;				el color del texto cambia
+    text-decoration: underline;		se crea un subrayado
+}
+
+.productos li:active{				como en el caso anterior pero la funcion active es cuando se le da clic a ese elemento
+    border-color: #088c19			cambia de color el borde al realizar esta accion
+}
+
+.productos li:hover h2{				igual que el caso anterior de hover pero solo a la etiqueta h2 dentro de las otras etiquetas
+    font-size: 33px;				su tamaño cambia 
+}
+
+footer{							referencia a la etiqueta footer de pie de pagina de html
+    text-align: center;					alinea en el centro el texto
+    background: url(imagenes/imagenes/bg.jpg);	el fondo se le manda a llamar a una imagen (como en HTML)
+    padding: 40px;					mas espacio interno 
+}

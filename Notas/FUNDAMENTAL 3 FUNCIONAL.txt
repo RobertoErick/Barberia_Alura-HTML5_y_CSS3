@@ -1,0 +1,131 @@
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <LiquidCrystal.h>
+
+#define F_CPU 1000000UL
+#define LED_1 PORTB5
+
+// Variables del programa
+volatile char count = 0;
+volatile int i = 0;
+int valorPotenciometro = 0;
+
+// Funciones
+void initialize_ports(void);
+void initialize_timer0(void);
+void initialize_timer1(void);
+void timer0_on(void);
+void timer0_off(void);
+void timer1_on(void);
+void timer1_off(void);
+
+// Configuración del LCD
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+
+void setup() {
+  cli();
+  initialize_ports();
+  initialize_timer0();
+  initialize_timer1();
+  sei();
+  timer0_on();
+  timer1_on();
+  
+  lcd.begin(16, 2);
+}
+
+void loop() {
+ 
+}
+
+void initialize_ports(void)
+{
+  DDRB 	|=	(1<<LED_1);
+  PORTB	&=~ ((1<<LED_1));
+}
+
+void initialize_timer0(void)
+{
+  TCCR0A &=~ (1<<WGM00);
+  TCCR0A |=	 (1<<WGM01);
+  TCCR0B &=~ (1<<WGM02);
+  
+  OCR0A = 244.140625;
+  
+  TIMSK0 |= (1<<OCIE0A);
+}
+
+void timer0_on(void)
+{
+  TCNT0 = 0;
+  
+  TCCR0B |=  (1<<CS00);
+  TCCR0B &=~ (1<<CS01);
+  TCCR0B |=  (1<<CS02);
+}
+
+void timer0_off(void)
+{
+  TCCR0B &=~ (1<<CS00);
+  TCCR0B &=~ (1<<CS01);
+  TCCR0B &=~ (1<<CS02);
+}
+
+void initialize_timer1(void)
+{
+  TCCR1A &=~ _BV(WGM10);
+  TCCR1A &=~ _BV(WGM11);
+  TCCR1B |=  _BV(WGM12);
+  TCCR1B &=~ _BV(WGM13);
+  
+  OCR1A = 976.5625;
+  
+  TIMSK1 |= (1<<OCIE1A);
+}
+
+void timer1_on(void)
+{
+  TCNT1 = 0;
+  
+  TCCR1B |=  (1<<CS10);
+  TCCR1B &=~ (1<<CS11);
+  TCCR1B |=  (1<<CS12);
+}
+
+void timer1_off(void)
+{
+	TCCR1B &=~ (1<<CS10);
+	TCCR1B &=~ (1<<CS11);
+	TCCR1B &=~ (1<<CS12);
+}
+
+ISR (TIMER0_COMPA_vect)
+{
+  valorPotenciometro = analogRead(A0);  // Leemos el valor del potenciómetro conectado a A0
+
+  lcd.setCursor(0, 0);
+  lcd.print("Potenciometro   ");
+
+  lcd.setCursor(0, 1);
+
+  if (valorPotenciometro <= 50) {
+    lcd.print("BAJO");
+  } else if (valorPotenciometro <= 100) {
+    lcd.print("BIEN");
+  } else {
+    lcd.print("ALTO");
+  }
+
+  lcd.print(" = ");
+  lcd.print(String(valorPotenciometro, BIN) + "        ");
+}
+
+ISR (TIMER1_COMPA_vect)
+{
+  count++;
+  if (count>=8)
+  {
+    PORTB ^= (1<<LED_1);
+    count = 0;
+  }
+}
